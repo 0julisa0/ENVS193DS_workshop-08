@@ -95,6 +95,9 @@ ggpairs(drought_exp_clean, # data frame
 
 Choose 3 pairs of variables to compare. Make notes of those comparisons below.    
 
+
+shot mass and total mass are stronly positive  
+root mass and total mass have a stronly positive correlated corr. is 0.858
 **Total mass is positively correlated with leaf dry weight (Pearson's r = 0.46).**  
 
 **Shoot mass and total mass are strongly positively correlated (Pearson's r = 0.902)**  
@@ -114,7 +117,8 @@ In this scenario, we're interested in how three variables affect total biomass: 
 **Note:** it is totally ok (and encouraged) to explore these separately!
 
 ### how does total biomass differ between species?
-
+biomass have different means, species on left have greater biomass means. gindelia
+salvia, centranth,..... have the lowest mean total mass
 ```{r}
 ggplot(data = drought_exp_clean, # data frame
        aes(x = reorder(species_name, # reordering x-axis
@@ -128,7 +132,7 @@ ggplot(data = drought_exp_clean, # data frame
 **plants with larger biomass seem to have larger ranges, Grindelia has highest biomass, Acmispon has lowest biomass**
 
 ### how does total biomass differ between water treatments?
-
+drought distressed species have lower levels of total biomass, weel watered species have higher levels of total biomass
 ```{r}
 ggplot(data = drought_exp_clean, # data frame
        aes(x = water_treatment, # x-axis
@@ -140,7 +144,7 @@ ggplot(data = drought_exp_clean, # data frame
 **well watered plants tend to have larger biomass, makes sense based on how plants work!**
 
 ### how does specific leaf area (SLA) influence total biomass?
-
+there is a moderate positive relationship between leaf total biomass and specific leaf area
 ```{r}
 ggplot(data = drought_exp_clean, # data frame
        aes(x = sla, # x-axis
