@@ -157,10 +157,11 @@ ggplot(data = drought_exp_clean, # data frame
 # Model construction
 
 What is the null model?  
-
+total biomass as a function of none of the predictors 
 0. **total mass is not predicted by any of the three predictors**  
 
 What is the saturated model?  
+the saturated model is the species, water level, and specific leaf area 
 
 1. **total mass predicted by SLA, water treatment, and species**  
 
@@ -193,6 +194,8 @@ par(mfrow = c(2, 2))
 plot(model1)
 # you might get a warning when you run this code - that is ok!
 ```
+diagnostics look ok
+
 
 Diagnostics for saturated model look good!
 
@@ -229,7 +232,9 @@ model.sel(model0,
           model3)
 ```
 
-Out of the four models we have tried, the best model is the one that includes **all three predictors (specific leaf area, water treatment, and species)**  
+Out of the four models we have tried, the best model is the one that includes 
+
+model 1, specific leaf area, species, water treatment 
 
 Note that this may change once you fit and compare the other model!  
 
@@ -240,20 +245,22 @@ Note that this may change once you fit and compare the other model!
 ```{r}
 summary(model1)
 ```
-
+(doesnt show up in list, therefore refrence level)
 What are the reference levels?  
 
-- reference for `water_treatment`  
-- reference for `species_name`  
+- reference for `water_treatment`  drought stressed 
+- reference for `species_name`  acmispon glaber 
 
 **reference for water_treatment:** **water_treatmentDrought stressed**  
 **reference for species_name:** **species_nameAcmispon glaber**  
 
 Interpret the model estimates for the:  
 
-- intercept: **mass of Acmispon glaber in drought stressed treatment when SLA = 0**  
+- intercept: **mass of Acmispon glaber in drought stressed treatment when SLA = 0**  mass of acispon glaber in drought stressed treatment when SLA=0 
 - SLA slope: **across drought treatments and species, with each 1 unit increase in SLA (mm^2^/dry mass of leaf), we expect an increase in total mass of -0.00025 WHICH MEANS WITH THE ESTIMATE AND STANDARD ERROR THERE IS NO EFFECT OF SLA ON TOTAL MASS**  
-- well watered estimate: **across species and SLA, well watered plants tend to be 0.12 +- (figure out how to write plus minus in text) 0.02 g heavier than drought stressed plants**    
+
+figure out how to display +/-
+- well watered estimate: **across species and SLA, well watered plants tend to be 0.12 +- (figure out how to write plus minus in text) 0.02 g heavier than drought stressed plants**    NO EFFECTS ON MASS
 - Lotus scoparius estimate: **insert response here**    
 - Stipa pulchra estimate: **insert response here**    
 
